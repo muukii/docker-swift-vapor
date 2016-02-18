@@ -59,9 +59,6 @@ ENV PATH /usr/bin:$PATH
 # Print Installed Swift Version
 RUN swift --version
 
-# Expose ports.
-#EXPOSE 22 3306
-
 # User env
 USER muukii
 WORKDIR /home/muukii/
@@ -72,6 +69,12 @@ RUN make vim
 WORKDIR /home/muukii
 RUN mkdir develop
 RUN mkdir .ssh
+
+# Volume
+VOLUME ["/develop"]
+
+# Expose ports.
+EXPOSE 22 3306
 
 # Define default command.
 CMD ["/bin/zsh"]
