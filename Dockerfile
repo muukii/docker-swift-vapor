@@ -67,11 +67,10 @@ WORKDIR /home/muukii/dotfiles
 RUN make symlink
 RUN make vim
 WORKDIR /home/muukii
-RUN mkdir develop
 RUN mkdir .ssh
 
 # Volume
-VOLUME ["/develop"]
+VOLUME ["~/develop"]
 
 # Expose ports.
 EXPOSE 22 3306
