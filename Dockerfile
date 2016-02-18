@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 
 MAINTAINER Muukii <m@muukii.me>
 
-ENV HOSTNAME [Revel]
+ENV HOSTNAME [Swift]
 
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
