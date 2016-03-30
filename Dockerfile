@@ -40,7 +40,7 @@ WORKDIR /home/muukii
 RUN mkdir .ssh
 
 # Volume
-VOLUME ["~/develop"]
+VOLUME ["/home/muukii/develop"]
 
 # Expose ports.
 EXPOSE 22 3306
