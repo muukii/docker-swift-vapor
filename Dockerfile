@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM swiftdocker/swift:latest
 
 MAINTAINER Muukii <m@muukii.me>
 
@@ -28,27 +28,6 @@ RUN useradd -s /bin/zsh -m muukii
 RUN echo 'muukii ALL=(ALL:ALL) NOPASSWD:ALL' | tee /etc/sudoers.d/dev
 RUN gpasswd -a muukii root
 ENV HOME /home/muukii
-
-# Swift
-ENV SWIFT_PLATFORM ubuntu14.04
-
-# Install related packages
-RUN apt-get update && \
-    apt-get install -y build-essential wget clang libedit-dev python2.7 python2.7-dev libicu52 rsync libxml2 git && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-# Install swiftenv
-RUN apt-get -qy install clang libicu-dev build-essential
-RUN git clone https://github.com/kylef/swiftenv.git /usr/local/swiftenv
-ENV SWIFTENV_ROOT /usr/local/swiftenv
-ENV PATH $SWIFTENV_ROOT/bin:$SWIFTENV_ROOT/shims:$PATH
-
-# Set Swift Path
-ENV PATH /usr/bin:$PATH
-
-# Print Installed Swift Version
-RUN swift --version
 
 # User env
 USER muukii
