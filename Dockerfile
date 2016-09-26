@@ -1,5 +1,6 @@
 FROM swiftdocker/swift:latest
 
+
 MAINTAINER Muukii <m@muukii.me>
 
 ENV HOSTNAME [Swift]
